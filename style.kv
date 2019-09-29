@@ -1,0 +1,56 @@
+ManagerWindow:
+    DownloadWindow:
+    ReaderWindow:
+
+<DownloadWindow>:
+    name: "download"
+
+    url: url
+    manga: manga
+    startChapter: startChapter
+    endChapter: endChapter
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+            Label:
+                text: "Url: "
+            TextInput:
+                id: url
+                multiline:False
+            Label:
+                text: "Manga: "
+            TextInput:
+                id: manga
+                multiline:False
+            Label:
+                text: "First chapter: "
+            TextInput:
+                id: startChapter
+                multiline:False
+            Label:
+                text: "Last chapter: "
+            TextInput:
+                id: endChapter
+                multiline:False
+            Label:
+                text: "Is on 2 digit ?: "
+            TextInput:
+                id: digit
+                multiline:False
+        Button:
+            text:"Download"
+            on_press:
+                root.downloadImage(url.text, manga.text, startChapter.text, endChapter.text, digit.text)
+
+<ReaderWindow>:
+    name: "reader"
+
+    Button:
+        text: "return"
+        on_release:
+            app.root.current = "download"
+            root.manager.transition.direction = "right"
