@@ -61,6 +61,15 @@ class DownloadWindow(Screen):
                 response = requests.get(currentUrl, stream=True)
 
             if response.status_code == 404 and ".png" in currentUrl:
+                if digit == 0:
+                    currentUrl = url + str(currentChapter) + "/" + str(currentPage) + ".JPG"
+                    typeFile = "JPG"
+                elif digit == 1:
+                    currentUrl = url + str(currentChapter) + "/" + "{:02d}".format(currentPage) + ".JPG"
+                    typeFile = "JPG"
+                response = requests.get(currentUrl, stream=True)
+
+            if response.status_code == 404 and ".JPG" in currentUrl:
                 print(
                     "chapter : ", currentChapter,
                     " | page : ", currentPage,
