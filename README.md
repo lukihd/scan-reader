@@ -3,7 +3,7 @@
 
 
 Scan reader is an opensource project developped by Lukihd.
-**I do could not be responsible of how people use my program.**
+**I am not be responsible of how people use my program.**
 
 
 
